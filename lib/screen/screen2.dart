@@ -20,7 +20,38 @@ class Screen2 extends StatelessWidget {
               future: futureCliente,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return Text(snapshot.data.nome);
+                  return DataTable(
+                    columns: [DataColumn(label: Text('Informações'))], 
+                    rows: [
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.cnpj)),
+                      ]),
+                      DataRow(cells: [ 
+                        DataCell(Text(snapshot.data.nome)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.fantasia)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.logradouro)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.numero)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.cep)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.bairro)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.municipio)),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text(snapshot.data.uf)),
+                      ]), 
+                    ]
+                  );
                 } else if (snapshot.hasError) {
                   return Text("${snapshot.error}");
                 }
