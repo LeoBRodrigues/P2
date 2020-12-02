@@ -1,15 +1,17 @@
 class Cliente {
+  
+  final String cnpj;
+  final String fantasia;
+  final String nome;
 
-  String _cnpj;
-  String _razao_social;
-  String _nome_fantasia;
-  String _logradouro;
-  String _numero;
-  String _bairro;
-  String _cep;
-  String _municipio;
-  String _uf;
+  Cliente({this.cnpj, this.fantasia, this.nome});
 
-  Cliente(){}
-
+  factory Cliente.fromJson(Map<String, dynamic> json) {
+    return Cliente(
+      cnpj: json['cnpj'],
+      nome: json['nome'],
+      fantasia: json['fantasia'] 
+      
+    );
+  }
 }
