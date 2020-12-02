@@ -14,8 +14,9 @@ class Screen2 extends StatelessWidget {
         title: Text("Dados Cadastrados"),
       ),
       body: 
-        Center(
-          child:
+        Column(
+          children: 
+          [
             FutureBuilder<Cliente>(
               future: futureCliente,
               builder: (context, snapshot) {
@@ -58,7 +59,16 @@ class Screen2 extends StatelessWidget {
           
                 return CircularProgressIndicator();
               },
-            )
+            ),
+            ElevatedButton(
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.pop(context);
+          },
+          child: Text('Encerrar consulta'),
+          ),
+          ]
+            
         ),
     );
   }
